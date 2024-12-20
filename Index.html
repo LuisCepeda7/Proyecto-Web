@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guía de Mantenimiento PC - UVM</title>
+  
+  <!-- Estilos internos -->
+  <style>
+    /* Estilos Generales */
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000; /* Fondo negro */
+      color: #f5f5f5; /* Texto claro */
+      overflow-x: hidden;
+    }
+
+    /* Encabezado con logo a la derecha */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1c1c1c;
+      padding: 20px;
+    }
+
+    .header-left {
+      max-width: 60%;
+    }
+
+    .header-right {
+      max-width: 20%;
+      text-align: right;
+    }
+
+    .logo {
+      max-height: 100px;
+      animation: logoGlow 3s infinite alternate;
+    }
+
+    @keyframes logoGlow {
+      0% {
+        filter: drop-shadow(0 0 0px #008CFF);
+      }
+      100% {
+        filter: drop-shadow(0 0 15px #008CFF);
+      }
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #008CFF;
+      margin: 0;
+      animation: glowText 1.5s infinite alternate;
+    }
+
+    @keyframes glowText {
+      from {
+        text-shadow: 0 0 10px #008CFF;
+      }
+      to {
+        text-shadow: 0 0 20px #008CFF;
+      }
+    }
+
+    header p {
+      margin: 10px 0 20px;
+      color: #ddd;
+      font-size: 1.1rem;
+    }
+
+    header button {
+      background: #008CFF;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    header button:hover {
+      background: #0075D1;
+    }
+
+    /* Navegación */
+    nav ul {
+      display: flex;
+      justify-content: center;
+      background: #2e2e2e;
+      margin: 0;
+      padding: 10px 0;
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: #008CFF;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #fff;
+    }
+
+    /* Contenido Principal */
+    main {
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    section h2 {
+      color: #008CFF;
+      border-bottom: 1px solid #444;
+      padding-bottom: 10px;
+      font-size: 1.8rem;
+    }
+
+    section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    button {
+      background: #008CFF;
+      color: #000;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      margin: 10px 0;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #0075D1;
+    }
+
+    /* Video */
+    .video-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    video {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #008CFF;
+      border-radius: 10px;
+      background: #000;
+    }
+
+    /* Definiciones ocultas */
+    .hidden {
+      display: none;
+    }
+
+    /* Imagen en definiciones */
+    #definitions img {
+      max-width: 300px;
+      display: block;
+      margin: 20px auto 0;
+      border: 2px solid #008CFF;
+      border-radius: 10px;
+    }
+
+    /* Sección Beneficios (Carrusel) */
+    #beneficios {
+      text-align: center;
+    }
+    #beneficios p {
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+    .carousel-container {
+      position: relative;
+      width: 80%;
+      max-width: 600px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .carousel-slide {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    /* Imágenes del carrusel con animación de brillo */
+    @keyframes imageGlow {
+      0% {
+        filter: drop-shadow(0 0 0px #008CFF);
+      }
+      100% {
+        filter: drop-shadow(0 0 15px #008CFF);
+      }
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      border: 2px solid #008CFF;
+      border-radius: 10px;
+      margin: 0 10px;
+      animation: imageGlow 3s infinite alternate;
+    }
+
+    .carousel-buttons {
+      margin-top: 10px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #1c1c1c;
+      color: #f5f5f5;
+      font-size: 0.9rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 300px;
+    }
+
+    form input, form textarea {
+      background: #2e2e2e;
+      color: #f5f5f5;
+      border: 1px solid #444;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 3px;
+    }
+
+    ul {
+      margin-top: 15px;
+      line-height: 1.6;
+    }
+
+    .monito-container {
+      display: inline-block;
+      margin-left: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .monito-container:hover {
+      transform: scale(1.2) rotate(5deg);
+    }
+
+    .monito {
+      width: 50px;
+    }
+
+    /* Mensaje final animado */
+    .mensaje-final {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 1.5rem;
+      color: #008CFF;
+      animation: blink 2s infinite;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @keyframes blink {
+      0%, 100% {opacity: 1;}
+      50% {opacity: 0.5;}
+    }
+
+    .mensaje-final .monito-container-final {
+      margin-top: 10px;
+      animation: monitoSaludo 2s infinite alternate;
+    }
+
+    @keyframes monitoSaludo {
+      from {transform: rotate(0deg);}
+      to {transform: rotate(10deg);}
+    }
+
+  </style>
+  <!-- Fin estilos internos -->
+  
+  <!-- Iconos opcionales -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <div class="header-left">
+      <h1 class="animate-text">Guía de Mantenimiento y Limpieza de PCs</h1>
+      <p>Consejos profesionales para un rendimiento óptimo. Mejora la estabilidad, velocidad y confiabilidad de tus equipos con nuestras guías, recursos y recomendaciones.</p>
+      <button onclick="scrollToSection('limpieza')">Explorar</button>
+    </div>
+    <div class="header-right">
+      <img src="imagen_2024-12-17_165924162-removebg-preview.png" alt="Logo" class="logo" />
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#limpieza">Limpieza de PC</a></li>
+      <li><a href="#mantenimiento">Mantenimiento</a></li>
+      <li><a href="#conceptos">Conceptos Básicos</a></li>
+      <li><a href="#beneficios">Beneficios</a></li>
+      <li><a href="#recursos">Recursos</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Sección de Limpieza -->
+    <section id="limpieza">
+      <h2>Limpieza de PC</h2>
+      <p>Mantén tu PC libre de polvo, residuos y archivos innecesarios. Una limpieza regular prolonga su vida útil y evita sobrecalentamientos. Añade toques finales como limpiar el teclado, la pantalla y optimizar el disco duro para un rendimiento excepcional. Una PC limpia no solo funciona mejor, también da una experiencia más cómoda y agradable al usuario.</p>
+      <button onclick="mostrarTutorial()">Ver Tutorial</button>
+    </section>
+
+    <!-- Sección de Mantenimiento Preventivo -->
+    <section id="mantenimiento">
+      <h2>Mantenimiento Preventivo</h2>
+      <p>Aprende a adelantarte a los problemas. Con un mantenimiento preventivo adecuado, podrás detectar piezas desgastadas, actualizar componentes clave y mantener tu sistema operativo al día. Así evitarás fallas repentinas, mejorarás la eficiencia energética y maximizarás el rendimiento a largo plazo. Un mantenimiento constante se traduce en menos tiempo de inactividad y mayor productividad.</p>
+      <div class="video-container">
+        <!-- Ajusta el nombre del video si es necesario -->
+        <video controls>
+          <source src="1000044947.mp4" type="video/mp4" />
+          Tu navegador no soporta reproducir este video.
+        </video>
+      </div>
+    </section>
+
+    <!-- Sección de Conceptos Básicos -->
+    <section id="conceptos">
+      <h2>Conceptos Básicos</h2>
+      <p>Conocer a fondo cada uno de los componentes y el software te permitirá entender por qué tu PC se comporta de cierta manera. Esta información es clave para tomar decisiones sobre mejoras, actualizaciones y soluciones a problemas.</p>
+      <button onclick="showDefinitions()">Ver Definiciones</button>
+      <div id="definitions" class="hidden">
+        <p><b>CPU (Unidad Central de Procesamiento):</b> El “cerebro” del ordenador. Ejecuta instrucciones y procesa datos. A mayor velocidad y núcleos, mejor rendimiento.</p>
+        <p><b>RAM (Memoria de Acceso Aleatorio):</b> Memoria temporal donde se almacenan datos de programas en uso. Más RAM permite un mejor desempeño multitarea.</p>
+        <p><b>HDD/SSD (Almacenamiento):</b> El HDD (Disco Duro) y el SSD (Unidad de Estado Sólido) guardan tus archivos y el sistema operativo. Un SSD es más rápido, silencioso y consume menos energía que un HDD.</p>
+        <p><b>GPU (Unidad de Procesamiento Gráfico):</b> Especializada en renderizar gráficos y video. Es esencial para videojuegos, diseño 3D y tareas con alta carga visual.</p>
+        <p><b>Tarjeta Madre (Motherboard):</b> La placa principal que conecta todos los componentes. Determina qué hardware puedes instalar y cómo interactúan entre sí.</p>
+        <p><b>PSU (Fuente de Poder):</b> Suministra la energía a todos los componentes. Una PSU de calidad y potencia adecuada es vital para la estabilidad del sistema.</p>
+        <p><b>Sistema Operativo:</b> El software que administra recursos, proporciona una interfaz y ejecuta las aplicaciones (ej. Windows, Linux, macOS). Mantenerlo actualizado asegura compatibilidad y seguridad.</p>
+        <p><b>Controladores (Drivers):</b> Programas que permiten que el sistema operativo se comunique con el hardware. Actualizarlos mejora el rendimiento y la estabilidad.</p>
+        <p><b>Software de Limpieza y Optimización:</b> Herramientas para eliminar archivos basura, desfragmentar discos y optimizar el arranque. Ayuda a mantener el sistema ágil y ordenado.</p>
+        
+        <!-- Imagen representativa de componentes internos -->
+        <img src="diagrama-de-componentes-de-un-ordenador.jpg" alt="Componentes internos de una PC">
+      </div>
+    </section>
+
+    <!-- Sección Beneficios (Carrusel) -->
+    <section id="beneficios">
+      <h2>Beneficios del Mantenimiento</h2>
+      <p>Un mantenimiento adecuado prolonga la vida del equipo, mejora la velocidad en tareas cotidianas, reduce el riesgo de fallas críticas, disminuye el ruido y el calor generado, y promueve un consumo energético más eficiente. En pocas palabras, obtienes una PC más confiable, rápida y lista para enfrentar cualquier desafío tecnológico.</p>
+      <div class="carousel-container">
+        <div class="carousel-slide" id="carouselSlide">
+          <!-- Reemplaza estas imágenes con las tuyas -->
+          <img src="1 proyecto.jpg" alt="Beneficio 1: Mayor durabilidad del equipo">
+          <img src="2 proyecto.jpg" alt="Beneficio 2: Mejor rendimiento en tareas diarias">
+          <img src="3 proyecto.jpg" alt="Beneficio 3: Menos riesgos de fallas críticas">
+        </div>
+      </div>
+      <div class="carousel-buttons">
+        <button onclick="prevImage()">Anterior</button>
+        <button onclick="nextImage()">Siguiente</button>
+      </div>
+    </section>
+
+    <!-- Sección de Recursos Adicionales (Solo un link) -->
+    <section id="recursos">
+      <h2>Recursos Adicionales</h2>
+      <p>Para profundizar más en el mantenimiento y la optimización de tu PC, consulta la siguiente guía detallada:</p>
+      <ul>
+        <li><a href="#">Información más detallada</a></li>
+      </ul>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto">
+      <h2>Contacto <span class="monito-container"><img src="046e9f332ec7cc0b5f4dc79221afe9f8-removebg-preview.png" class="monito" alt="Monito saludando"></span></h2>
+      <p>¿Tienes preguntas, comentarios o sugerencias? Envíanos un mensaje y nuestro equipo estará encantado de ayudarte. No dudes en compartir tus experiencias, problemas específicos o recomendaciones. ¡Tu retroalimentación nos ayuda a mejorar!</p>
+      <form>
+        <input type="text" placeholder="Tu nombre" required />
+        <input type="email" placeholder="Tu correo" required />
+        <textarea placeholder="Mensaje..." required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2024 Guía de Mantenimiento PC - comunidad UVM | Optimización y cuidado a tu alcance</p>
+  </footer>
+
+  <!-- Mensaje final animado -->
+  <div class="mensaje-final">
+    <p>Próximamente más información...</p>
+    <div class="monito-container-final">
+      <img src="e353baed-84dd-4537-b617-873541c5703c-removebg-preview.png" class="monito" alt="Monito saludando">
+    </div>
+  </div>
+
+  <!-- Música de fondo (debes tener chill.mp3 en tu carpeta, ajústalo a tu archivo preferido) -->
+  <audio src="chill.mp3" autoplay loop></audio>
+
+  <!-- Script interno -->
+  <script>
+    // Función para hacer scroll suave a una sección
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Función para mostrar/ocultar las definiciones
+    function showDefinitions() {
+      const definitions = document.getElementById('definitions');
+      definitions.classList.toggle('hidden');
+    }
+
+    // Función para mostrar un tutorial detallado paso a paso en una alerta
+    function mostrarTutorial() {
+      const mensaje = 
+        "Tutorial de Limpieza:\n\n" +
+        "Materiales Necesarios:\n" +
+        "- Aire comprimido\n" +
+        "- Paños de microfibra\n" +
+        "- Brocha suave\n" +
+        "- Desatornillador\n" +
+        "- Guantes antiestáticos (opcional)\n" +
+        "- Software de limpieza de disco\n\n" +
+        "Pasos:\n" +
+        "1. Apaga y desconecta la PC completamente.\n" +
+        "2. Retira la tapa del gabinete.\n" +
+        "3. Usa aire comprimido para eliminar el polvo interno, sobre todo en ventiladores y disipadores.\n" +
+        "4. Usa la brocha suave para remover polvo en rincones difíciles.\n" +
+        "5. Pasa un paño de microfibra por superficies internas y externas, evitando humedad.\n" +
+        "6. Verifica que las conexiones internas estén seguras.\n" +
+        "7. Cierra el gabinete y asegúrate de atornillar bien.\n" +
+        "8. Enciende la PC y elimina archivos temporales, programas innecesarios y realiza un escaneo antivirus.\n" +
+        "9. Actualiza el sistema operativo y controladores.\n" +
+        "10. Considera una herramienta de optimización de disco para mayor desempeño.\n\n" +
+        "Con estos pasos tu PC estará más limpia, silenciosa y con mejor rendimiento.";
+      alert(mensaje);
+    }
+
+    // Carrusel de imágenes
+    const carouselSlide = document.getElementById('carouselSlide');
+    let currentIndex = 0;
+    const images = carouselSlide.querySelectorAll('img');
+
+    function showImage(index) {
+      const offset = - (index * (images[0].width + 20));
+      carouselSlide.style.transform = `translateX(${offset}px)`;
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    }
+
+    window.addEventListener('load', () => {
+      showImage(currentIndex);
+    });
+  </script>
+</body>
+</html>
